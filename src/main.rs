@@ -35,8 +35,8 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
         Name::new("Camera"),
         Camera2dBundle::default(),
         PanCam {
-            max_scale: Some(2.0),
-            min_y: Some(0.0),
+            max_scale: 2.0,
+            min_y: 0.0,
             ..default()
         },
     ));

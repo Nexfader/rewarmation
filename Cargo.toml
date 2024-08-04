@@ -5,4 +5,4 @@ edition = "2021"
 
 [dependencies]
 bevy = "0.14"
-bevy_pancam = "0.12.0"
+bevy_pancam = "0.13.0"
