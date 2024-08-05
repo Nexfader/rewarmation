@@ -33,7 +33,10 @@ fn main() {
 fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands.spawn((
         Name::new("Camera"),
-        Camera2dBundle::default(),
+        Camera2dBundle {
+            transform: Transform::from_xyz(0.0, 1000.0, 0.0),
+            ..default()
+        },
         PanCam {
             max_scale: 2.0,
             min_y: 0.0,

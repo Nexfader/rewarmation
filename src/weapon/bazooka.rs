@@ -3,7 +3,7 @@ use super::{
     WeaponBundle,
 };
 use crate::{
-    game::{z_index, GamePlayState},
+    game::{z_index, CameraFollowTarget, GamePlayState},
     physics::{CollisionExtent, PhysicsBodyBundle, Velocity},
 };
 use bevy::prelude::*;
@@ -77,14 +77,15 @@ fn spawn_bazooka_rocket(
     position: Vec2,
     force: Vec2,
 ) -> Entity {
-    const PROJECTILE_EXTENT: Vec2 = Vec2::splat(50.0);
-    const PROJECTILE_COLLISION_EXTENT: Vec2 = Vec2::splat(30.0);
+    const PROJECTILE_EXTENT: Vec2 = Vec2::splat(60.0);
+    const PROJECTILE_COLLISION_EXTENT: Vec2 = Vec2::splat(40.0);
 
     commands
         .spawn((
             Name::new("Bazooka projectile"),
             StateScoped(GamePlayState::InGame),
             BazookaProjectile,
+            CameraFollowTarget,
             ProjectileBundle {
                 sprite: SpriteBundle {
                     texture: asset_server.load("textures/bazookaRocket.png"),
